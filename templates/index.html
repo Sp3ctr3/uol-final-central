@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="refresh" content="10">
+    <title>Dashboard</title>
+</head>
+<body>
+   <h1>Welcome to the Alarm Dashboard</h1>
+   <table>
+  <tr>
+    <th>Timestamp</th>
+    <th>Person recognized?</th>
+    <th>Image</th>
+    <th>Node</th>
+  </tr>
+   {% for log in logs %}
+   <tr>
+   <td>{{ log[0] }}</td>
+   {% if log[1] == True %}
+   <td><p style="color:green;">{{ log[1] }}</p></td>
+   {% elif log[1] == False %}
+   <td><p style="color:red;"><b>{{ log[1] }}</b></p></td>
+   {% else %}
+   <td><p style="color:orange;">{{ log[1] }}</p></td>
+   {% endif %}
+   <td> <img src={{ log[2] }}></td>
+   <td>{{ log[3] }} </td>
+   </tr>
+   {% endfor %}
+   </table>
+</body>
+</html>
